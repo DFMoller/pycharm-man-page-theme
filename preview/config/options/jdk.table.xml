@@ -1,0 +1,19 @@
+<application>
+  <component name="ProjectJdkTable">
+    <!-- The only interpreter in the sandbox, named in the sample project's .idea/misc.xml. PyCharm fills in
+         the version and library paths itself. -->
+    <jdk version="2">
+      <name value="Preview Python" />
+      <type value="Python SDK" />
+      <homePath value="$PREVIEW_PYTHON$" />
+      <roots>
+        <classPath>
+          <root type="composite" />
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+    </jdk>
+  </component>
+</application>

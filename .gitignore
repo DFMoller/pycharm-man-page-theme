@@ -7,4 +7,4 @@ src/themes/ManPage.xml
 preview/out/
 
 __pycache__/
-.idea/
+/.idea/

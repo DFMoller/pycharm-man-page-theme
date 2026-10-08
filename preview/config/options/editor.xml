@@ -1,0 +1,6 @@
+<application>
+  <component name="EditorSettings">
+    <!-- A blinking caret would keep the screen from ever settling. -->
+    <option name="IS_CARET_BLINKING" value="false" />
+  </component>
+</application>

@@ -1,0 +1,6 @@
+<application>
+  <component name="NotificationConfiguration">
+    <!-- Hides the warning that the IDE was started by pycharm.sh rather than the native launcher. -->
+    <notification groupId="System Health" displayType="NONE" shouldLog="false" />
+  </component>
+</application>
