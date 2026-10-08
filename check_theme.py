@@ -64,6 +64,13 @@ EDITOR_PAIRS = [
 CONSOLE_BACKGROUND = "CONSOLE_BACKGROUND_KEY"
 CONSOLE_MINIMUM = NON_TEXT
 
+# Pairs allowed to stay below their minimum, by label, with the reason. They are reported but do not fail
+# the check.
+EXCEPTIONS = {
+    "Console white": "ANSI bright white is meant to be lighter than a light background; programs use it on "
+    "coloured backgrounds. Making it readable on paper would turn it into another grey.",
+}
+
 HEX = re.compile(r"#?([0-9A-Fa-f]{6})([0-9A-Fa-f]{2})?")
 
 
@@ -79,7 +86,7 @@ class Result:
 
     @property
     def passed(self) -> bool:
-        return self.ratio >= self.minimum
+        return self.ratio >= self.minimum or self.label in EXCEPTIONS
 
 
 def flatten(tree: dict, prefix: str = "") -> dict[str, object]:
@@ -200,9 +207,11 @@ def main() -> None:
     results = check_ui(theme) + check_editor(ElementTree.parse(SCHEME).getroot())
     print("Contrast (WCAG 2 ratio, minimum in brackets):")
     for result in results:
-        mark = "ok  " if result.passed else "FAIL"
+        mark = "FAIL" if not result.passed else "ok  " if result.ratio >= result.minimum else "exc "
         print(f"  {mark} {result.ratio:5.2f} ({result.minimum}) {result.label}: "
               f"{result.foreground} on {result.background}")
+    for label, reason in EXCEPTIONS.items():
+        print(f"  exc: {label}: {reason}")
 
     if not args.no_diff:
         pycharm = args.pycharm or newest_pycharm()

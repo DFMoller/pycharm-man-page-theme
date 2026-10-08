@@ -22,19 +22,19 @@
     <option name="CONSOLE_NORMAL_OUTPUT"><value><option name="FOREGROUND" value="000000" /></value></option>
     <option name="CONSOLE_BLACK_OUTPUT"><value><option name="FOREGROUND" value="000000" /></value></option>
     <option name="CONSOLE_RED_OUTPUT"><value><option name="FOREGROUND" value="cc0000" /></value></option>
-    <option name="CONSOLE_GREEN_OUTPUT"><value><option name="FOREGROUND" value="00a600" /></value></option>
-    <option name="CONSOLE_YELLOW_OUTPUT"><value><option name="FOREGROUND" value="999900" /></value></option>
+    <option name="CONSOLE_GREEN_OUTPUT"><value><option name="FOREGROUND" value="009200" /></value></option>
+    <option name="CONSOLE_YELLOW_OUTPUT"><value><option name="FOREGROUND" value="828200" /></value></option>
     <option name="CONSOLE_BLUE_OUTPUT"><value><option name="FOREGROUND" value="0000b2" /></value></option>
     <option name="CONSOLE_MAGENTA_OUTPUT"><value><option name="FOREGROUND" value="b200b2" /></value></option>
-    <option name="CONSOLE_CYAN_OUTPUT"><value><option name="FOREGROUND" value="00a6b2" /></value></option>
-    <option name="CONSOLE_GRAY_OUTPUT"><value><option name="FOREGROUND" value="cccccc" /></value></option>
+    <option name="CONSOLE_CYAN_OUTPUT"><value><option name="FOREGROUND" value="008b96" /></value></option>
+    <option name="CONSOLE_GRAY_OUTPUT"><value><option name="FOREGROUND" value="898989" /></value></option>
     <option name="CONSOLE_DARKGRAY_OUTPUT"><value><option name="FOREGROUND" value="666666" /></value></option>
     <option name="CONSOLE_RED_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="e50000" /></value></option>
-    <option name="CONSOLE_GREEN_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="00d900" /></value></option>
-    <option name="CONSOLE_YELLOW_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="e5e500" /></value></option>
+    <option name="CONSOLE_GREEN_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="00a100" /></value></option>
+    <option name="CONSOLE_YELLOW_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="8e8e00" /></value></option>
     <option name="CONSOLE_BLUE_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="0000ff" /></value></option>
     <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="e500e5" /></value></option>
-    <option name="CONSOLE_CYAN_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="00e5e5" /></value></option>
+    <option name="CONSOLE_CYAN_BRIGHT_OUTPUT"><value><option name="FOREGROUND" value="009999" /></value></option>
     <option name="CONSOLE_WHITE_OUTPUT"><value><option name="FOREGROUND" value="e5e5e5" /></value></option>
   </attributes>
 </scheme>

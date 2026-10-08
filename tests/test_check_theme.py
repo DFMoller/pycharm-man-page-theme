@@ -1,7 +1,7 @@
 import unittest
 import xml.etree.ElementTree as ElementTree
 
-from check_theme import contrast, flatten, resolve, scheme_colours, theme_diff
+from check_theme import EXCEPTIONS, Result, contrast, flatten, resolve, scheme_colours, theme_diff
 
 
 class ContrastTest(unittest.TestCase):
@@ -19,6 +19,15 @@ class ContrastTest(unittest.TestCase):
 
     def test_half_transparent_foreground_is_blended(self) -> None:
         self.assertAlmostEqual(contrast("#00000080", "#FFFFFF"), contrast("#7F7F7F", "#FFFFFF"), places=1)
+
+
+class ResultTest(unittest.TestCase):
+    def test_low_ratio_fails(self) -> None:
+        self.assertFalse(Result("Some pair", "#EEEEEE", "#FFFFFF", 1.1, 3.0).passed)
+
+    def test_listed_exception_passes_despite_low_ratio(self) -> None:
+        label = next(iter(EXCEPTIONS))
+        self.assertTrue(Result(label, "#EEEEEE", "#FFFFFF", 1.1, 3.0).passed)
 
 
 class ResolveTest(unittest.TestCase):
