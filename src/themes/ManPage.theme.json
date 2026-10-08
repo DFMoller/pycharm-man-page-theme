@@ -157,7 +157,7 @@
 
     "text-default": "black",
     "text-muted": "gray-70",
-    "text-secondary": "gray-80",
+    "text-secondary": "gray-70",
     "text-disabled": "gray-100",
     "text-over-accent": "white",
     "text-over-accent-inverted": "black",

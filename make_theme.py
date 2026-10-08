@@ -63,6 +63,9 @@ REPLACEMENTS = [
     ('"container-main-window-bg-alt": "#E8E8EB"', '"container-main-window-bg-alt": "gray-150"'),
     ('"container-tool-window-bg-alt": "#F7F6F8"', '"container-tool-window-bg-alt": "gray-160"'),
     ('"container-editor-border-alt": "#E8E9ED"', '"container-editor-border-alt": "gray-140"'),
+    # Secondary text (hints, popup footers, shortcuts) is mid grey in Islands Light: 3.8 on the yellow
+    # backgrounds. One step darker gives 5.1, enough for small text.
+    ('"text-secondary": "gray-80"', '"text-secondary": "gray-70"'),
     # Accent: buttons, focus rings, active tab underline, checkboxes.
     ('"accent-brand-bg": "blue-80"', '"accent-brand-bg": "purple"'),
     ('"accent-brand-border": "blue-80"', '"accent-brand-border": "purple"'),
