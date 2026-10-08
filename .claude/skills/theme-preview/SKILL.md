@@ -8,6 +8,21 @@ description: How to design and change the Man Page PyCharm theme with the closed
 Never report a color change as done from the code alone. Look at it: every change goes through the
 static check and at least one screenshot, and the reply says what the screenshot showed.
 
+## Design intent
+
+The theme copies the Ubuntu terminal's "Man page" profile: pale yellow `#FEF49C` content, black text,
+flat surfaces with no colored frames. Purple is a splash only: the header bar is one solid lavender
+band (`#7F7ACD`, the terminal's title bar color in an SSH session), and purple otherwise appears only
+as accents (primary buttons, checkboxes, focus rings, light lavender selection). Tool window strips,
+gaps between panels, the window frame and the status bar stay yellow. Keep to this when changing
+colors.
+
+The header bar has no background of its own: the window frame painter fills it with
+`MainToolbar.background`, and fills strips and gaps with `MainWindow.background`. The project-color
+gradient is switched off (zero size), which is what lets the two differ; see `GRADIENT_PATTERNS` in
+`make_theme.py`. Check header changes in both an active window (`main`) and an inactive one
+(`settings`, where the dialog has focus).
+
 ## Where the colors live
 
 - `make_theme.py` generates `src/themes/ManPage.theme.json` from Islands Light in the installed
@@ -40,8 +55,9 @@ Keys under `ui` resolve through the `colors` palette (`"MainToolbar.background":
 3. Run `./check_theme.py`. It takes about 0.1 s. Read the contrast lines for the pairs you touched; a
    new `FAIL`, or a ratio that dropped, needs a reason or a fix. The diff at the end shows the theme
    keys that now differ from Islands Light; check that your change appears there and nothing else
-   changed by accident. Exit status 1 is normal while known failures remain; compare against the
-   previous run rather than treating the status as the result.
+   changed by accident. Every pair passes today, so exit status 1 means your change broke one. A pair
+   may stay below its minimum only with a reason in `EXCEPTIONS` in `check_theme.py` (reported as
+   `exc`); add one only when the user agrees.
 4. Run `./preview.py <scene>` and read the PNG it prints. A run takes 25 to 40 s.
 5. Look closely at the area you changed (see "Looking at details"). Compare it with the before
    screenshot.
