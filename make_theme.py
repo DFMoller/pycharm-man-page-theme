@@ -17,7 +17,7 @@ ISLANDS_JSON = "themes/islands/ManyIslandsLight.theme.json"
 # Named colours added to the theme palette.
 NEW_COLORS = {
     "paper": "#FEF49C",
-    "lavender": "#7F7FCC",
+    "lavender": "#7F7ACD",
     "purple": "#5B5BB5",
     "lavender-pale": "#D4D4F2",
     "lavender-paler": "#E2E2F5",
@@ -34,15 +34,22 @@ GREY_RAMP = {
     "gray-110": "#B5AB5E",
 }
 
-# The main toolbar paints a per-project colour gradient over its left 600px. Every project colour group
-# is flattened to lavender so the header bar is one solid colour. Each pattern must match this many times.
-LAVENDER = NEW_COLORS["lavender"]
+# The window frame (header bar, tool window strips, status bar and the gaps between panels) is painted by
+# one painter. The header bar itself is transparent: with "Use project colors in main toolbar" on, the
+# painter draws a per-project gradient over the top-left of the window (600x300px in Islands Light, which
+# covers the top of the left strip too) and otherwise MainToolbar.background. The gradient is switched
+# off by giving it zero size in REPLACEMENTS, so the header bar is MainToolbar.background (lavender)
+# whatever the setting, and MainWindow.background can stay yellow for the strips and gaps. Every gradient
+# colour is also made transparent, so nothing lavender spills onto the strip if a future IDE ignores the
+# size. Each pattern must match this many times.
+GRADIENT_COLOR = NEW_COLORS["lavender"] + "00"
+HEX_VALUE = r'"#[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?"'
 GRADIENT_PATTERNS = [
-    # Gradient stops of the nine project colour groups; any alpha suffix is kept.
-    (r'("grad-g\d-[a-z]+-(?:a1|a1-secondary|a2|bg)(?:-transparent)?":\s*)"#[0-9A-Fa-f]{6}', 45),
+    # Gradient stops of the nine project colour groups.
+    (r'("grad-g\d-[a-z]+-(?:a1|a1-secondary|a2|bg)(?:-transparent)?":\s*)' + HEX_VALUE, 45),
     # White haze overlays drawn on top of the gradient.
-    (r'("grad-(?:hor|ver)-[a-z]+":\s*)"#[0-9A-Fa-f]{6}', 4),
-    (r'("RecentProject\.Color\d\.MainToolbarGradientStart":\s*)"#[0-9A-Fa-f]{6}', 9),
+    (r'("grad-(?:hor|ver)-[a-z]+":\s*)' + HEX_VALUE, 4),
+    (r'("RecentProject\.Color\d\.MainToolbarGradientStart":\s*)' + HEX_VALUE, 9),
 ]
 
 # Exact text replacements; each must match exactly once in the source theme.
@@ -67,14 +74,12 @@ REPLACEMENTS = [
     ('"tab-selected-bg-active": "blue-150"', '"tab-selected-bg-active": "lavender-paler"'),
     ('"toolbar-selected-bg": "blue-140"', '"toolbar-selected-bg": "lavender-pale"'),
     ('"toolbar-selected-bg-hovered": "blue-130"', '"toolbar-selected-bg-hovered": "lavender-border"'),
-    # Window frame, visible as thin gaps between the yellow panels. The toolbar's project gradient is drawn
-    # translucently over this colour, so it must be lavender for the header bar to be one solid colour.
-    ('"MainWindow.background": "container-main-window-bg-alt"', '"MainWindow.background": "lavender"'),
-    ('"MainWindow.background": "container-main-window-bg"', '"MainWindow.background": "lavender"'),
     # The Run/Debug buttons in the header draw their icons in this colour, faded when disabled. The default
     # grey fades to almost nothing on lavender.
     ('"iconColor": "icon-default-stroke",\n      "runningBackground"', '"iconColor": "#1E1F28",\n      "runningBackground"'),
-    # Header bar and title bar.
+    # Header bar and title bar. The project-colour gradient gets zero size; see GRADIENT_PATTERNS.
+    ('"MainToolbarGradient.width": 600', '"MainToolbarGradient.width": 0'),
+    ('"MainToolbarGradient.height": 300', '"MainToolbarGradient.height": 0'),
     ('"MainToolbar.background": "container-main-window-bg-alt"', '"MainToolbar.background": "lavender"'),
     (
         '"MainToolbar": {\n      "background": "container-main-window-bg",\n'
@@ -130,7 +135,7 @@ def recolour(source: str) -> str:
     source = source.replace(anchor, anchor + new_colors)
 
     for pattern, expected in GRADIENT_PATTERNS:
-        source, count = re.subn(pattern, rf'\1"{LAVENDER}', source)
+        source, count = re.subn(pattern, rf'\1"{GRADIENT_COLOR}"', source)
         if count != expected:
             raise ValueError(f"Expected {expected} gradient colours for {pattern!r}, found {count}.")
 
