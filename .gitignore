@@ -1,0 +1,10 @@
+# Build output from build.sh.
+ManPageTheme.jar
+# Copied from ManPage.xml by build.sh.
+src/themes/ManPage.xml
+
+# Screenshots written by preview.py.
+preview/out/
+
+__pycache__/
+.idea/

@@ -1,0 +1,12 @@
+<idea-plugin>
+  <id>local.theme.manpage</id>
+  <name>Man Page Theme</name>
+  <version>1.4.0</version>
+  <vendor>local</vendor>
+  <description>Islands Light recoloured to match the Ptyxis/Terminal "Man Page" palette.</description>
+  <idea-version since-build="261"/>
+  <depends>com.intellij.modules.platform</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="local-man-page-theme" path="/themes/ManPage.theme.json"/>
+  </extensions>
+</idea-plugin>
