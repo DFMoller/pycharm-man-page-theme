@@ -1,8 +1,8 @@
 """Generate the Man Page UI theme from the Islands Light theme bundled with PyCharm.
 
 The theme is a recoloured copy of Islands Light: backgrounds become the pale yellow of the
-Ptyxis/Terminal "Man Page" palette, and lavender/purple replaces the blue accent, selection and
-header colours. Everything else (text colours, icons, metrics) is inherited unchanged, which is why
+Ptyxis/Terminal "Man Page" palette, including the header bar, and purple and lavender replace the blue
+accent and selection colours. Everything else (text colours, icons, metrics) is inherited unchanged, which is why
 the theme is regenerated from the installed IDE rather than maintained by hand.
 """
 
@@ -17,7 +17,6 @@ ISLANDS_JSON = "themes/islands/ManyIslandsLight.theme.json"
 # Named colours added to the theme palette.
 NEW_COLORS = {
     "paper": "#FEF49C",
-    "lavender": "#7F7ACD",
     "purple": "#5B5BB5",
     "lavender-pale": "#D4D4F2",
     "lavender-paler": "#E2E2F5",
@@ -35,14 +34,13 @@ GREY_RAMP = {
 }
 
 # The window frame (header bar, tool window strips, status bar and the gaps between panels) is painted by
-# one painter. The header bar itself is transparent: with "Use project colors in main toolbar" on, the
-# painter draws a per-project gradient over the top-left of the window (600x300px in Islands Light, which
-# covers the top of the left strip too) and otherwise MainToolbar.background. The gradient is switched
-# off by giving it zero size in REPLACEMENTS, so the header bar is MainToolbar.background (lavender)
-# whatever the setting, and MainWindow.background can stay yellow for the strips and gaps. Every gradient
-# colour is also made transparent, so nothing lavender spills onto the strip if a future IDE ignores the
-# size. Each pattern must match this many times.
-GRADIENT_COLOR = NEW_COLORS["lavender"] + "00"
+# one painter. With "Use project colors in main toolbar" on, it draws a per-project colour gradient over
+# the top-left of the window (600x300px in Islands Light, which covers the top of the left strip too),
+# and otherwise MainToolbar.background. The gradient is switched off by giving it zero size in
+# REPLACEMENTS, so the header bar is the same plain yellow as the strips whatever the setting. Every
+# gradient colour is also made transparent, so nothing shows if a future IDE ignores the size. Each
+# pattern must match this many times.
+GRADIENT_COLOR = GREY_RAMP["gray-150"] + "00"
 HEX_VALUE = r'"#[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?"'
 GRADIENT_PATTERNS = [
     # Gradient stops of the nine project colour groups.
@@ -77,42 +75,19 @@ REPLACEMENTS = [
     ('"tab-selected-bg-active": "blue-150"', '"tab-selected-bg-active": "lavender-paler"'),
     ('"toolbar-selected-bg": "blue-140"', '"toolbar-selected-bg": "lavender-pale"'),
     ('"toolbar-selected-bg-hovered": "blue-130"', '"toolbar-selected-bg-hovered": "lavender-border"'),
-    # The Run/Debug buttons in the header draw their icons in iconColor, faded when disabled; the default
-    # grey fades to almost nothing on lavender. The green Run icon uses runIconColor, which Islands Light
-    # leaves at the default green: the same lightness as the lavender (contrast 1.0). A dark green keeps
-    # it green and gives it 3:1. It applies to the header only, not to the Run arrows in the editor.
+    # The green Run icon in the header uses runIconColor, which Islands Light leaves at the default green:
+    # 2.9 on the yellow header. A slightly darker green gives 3.2. It applies to the header only; the Run
+    # arrows in the editor gutter sit on paper, where the default green already gives 3.3.
     (
         '"iconColor": "icon-default-stroke",\n      "runningBackground"',
-        '"iconColor": "#1E1F28",\n      "runIconColor": "#163D21",\n      "runningBackground"',
+        '"iconColor": "icon-default-stroke",\n      "runIconColor": "#328C4A",\n      "runningBackground"',
     ),
-    # Header bar and title bar. The project-colour gradient gets zero size; see GRADIENT_PATTERNS.
+    # The project-colour gradient gets zero size; see GRADIENT_PATTERNS.
     ('"MainToolbarGradient.width": 600', '"MainToolbarGradient.width": 0'),
     ('"MainToolbarGradient.height": 300', '"MainToolbarGradient.height": 0'),
-    ('"MainToolbar.background": "container-main-window-bg-alt"', '"MainToolbar.background": "lavender"'),
-    (
-        '"MainToolbar": {\n      "background": "container-main-window-bg",\n'
-        '      "inactiveBackground": "container-main-window-bg",',
-        '"MainToolbar": {\n      "background": "lavender",\n      "inactiveBackground": "lavender",',
-    ),
-    (
-        '"Icon": {\n        "background": "container-main-window-bg",',
-        '"Icon": {\n        "background": "lavender",',
-    ),
-    (
-        '"Dropdown": {\n        "foreground": "text-default",\n        "background": "container-main-window-bg",',
-        '"Dropdown": {\n        "foreground": "text-default",\n        "background": "lavender",',
-    ),
-    (
-        '"TitlePane": {\n      "background": "container-dialog-bg",\n'
-        '      "inactiveBackground": "container-dialog-bg",',
-        '"TitlePane": {\n      "background": "lavender",\n      "inactiveBackground": "lavender",',
-    ),
-    # Darken the standard grey used by the light icon set (including the GNOME window buttons), which
-    # is too faint on the lavender header, and the lighter secondary grey with it, to 3:1 on lavender.
-    ('"ColorPalette": {', '"ColorPalette": {\n      "#6C707E": "#333542",\n      "#818594": "#373945",'),
-    # Disabled icons are a grey-filtered copy of the icon (brightness, contrast, alpha). The inherited
-    # filter lightens them, which makes them vanish on the lavender header; darken them instead.
-    ('"ui": {\n    "*": {', '"ui": {\n    "grayFilter": "-25,-30,100",\n    "*": {'),
+    # The light icon set's secondary grey gives 2.8 on the yellow header and strips; slightly darker
+    # gives 3.3. The main icon grey already gives 3.8.
+    ('"ColorPalette": {', '"ColorPalette": {\n      "#818594": "#777A88",'),
     # Checkboxes use literal colours in the colour palette section.
     ('"Checkbox.Background.Default": "#FFFFFF"', '"Checkbox.Background.Default": "#FEF49C"'),
     ('"Checkbox.Background.Disabled": "#F7F8FA"', '"Checkbox.Background.Disabled": "#F9EE94"'),

@@ -1,7 +1,7 @@
 # PyCharm Man Page theme
 
 A PyCharm UI theme and editor color scheme that match the Ptyxis/Terminal "Man Page" palette: pale
-yellow backgrounds, a lavender header bar, and purple accent and selection colors.
+yellow backgrounds and header bar, and purple accent and lavender selection colors.
 
 The UI theme is generated from the Islands Light theme bundled with PyCharm, so it inherits all
 layout and icon settings and only changes colors.

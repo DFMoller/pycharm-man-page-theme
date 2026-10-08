@@ -8,7 +8,6 @@
   "colors": {
     "white": "#FFFFFF",
     "paper": "#FEF49C",
-    "lavender": "#7F7ACD",
     "purple": "#5B5BB5",
     "lavender-pale": "#D4D4F2",
     "lavender-paler": "#E2E2F5",
@@ -305,70 +304,69 @@
     "icon-over-accent": "white",
     "icon-green-stroke": "green-80",
 
-    "grad-hor-left": "#7F7ACD00",
-    "grad-hor-right": "#7F7ACD00",
-    "grad-ver-top": "#7F7ACD00",
-    "grad-ver-bottom": "#7F7ACD00",
+    "grad-hor-left": "#F0E48600",
+    "grad-hor-right": "#F0E48600",
+    "grad-ver-top": "#F0E48600",
+    "grad-ver-bottom": "#F0E48600",
 
-    "grad-g1-amber-a1": "#7F7ACD00",
-    "grad-g1-amber-a1-transparent": "#7F7ACD00",
-    "grad-g1-amber-a1-secondary": "#7F7ACD00",
-    "grad-g1-amber-a2": "#7F7ACD00",
-    "grad-g1-amber-bg": "#7F7ACD00",
+    "grad-g1-amber-a1": "#F0E48600",
+    "grad-g1-amber-a1-transparent": "#F0E48600",
+    "grad-g1-amber-a1-secondary": "#F0E48600",
+    "grad-g1-amber-a2": "#F0E48600",
+    "grad-g1-amber-bg": "#F0E48600",
 
-    "grad-g2-rust-a1": "#7F7ACD00",
-    "grad-g2-rust-a1-transparent": "#7F7ACD00",
-    "grad-g2-rust-a1-secondary": "#7F7ACD00",
-    "grad-g2-rust-a2": "#7F7ACD00",
-    "grad-g2-rust-bg": "#7F7ACD00",
+    "grad-g2-rust-a1": "#F0E48600",
+    "grad-g2-rust-a1-transparent": "#F0E48600",
+    "grad-g2-rust-a1-secondary": "#F0E48600",
+    "grad-g2-rust-a2": "#F0E48600",
+    "grad-g2-rust-bg": "#F0E48600",
 
-    "grad-g3-olive-a1": "#7F7ACD00",
-    "grad-g3-olive-a1-transparent": "#7F7ACD00",
-    "grad-g3-olive-a1-secondary": "#7F7ACD00",
-    "grad-g3-olive-a2": "#7F7ACD00",
-    "grad-g3-olive-bg": "#7F7ACD00",
+    "grad-g3-olive-a1": "#F0E48600",
+    "grad-g3-olive-a1-transparent": "#F0E48600",
+    "grad-g3-olive-a1-secondary": "#F0E48600",
+    "grad-g3-olive-a2": "#F0E48600",
+    "grad-g3-olive-bg": "#F0E48600",
 
-    "grad-g4-sky-a1": "#7F7ACD00",
-    "grad-g4-sky-a1-transparent": "#7F7ACD00",
-    "grad-g4-sky-a1-secondary": "#7F7ACD00",
-    "grad-g4-sky-a2": "#7F7ACD00",
-    "grad-g4-sky-bg": "#7F7ACD00",
+    "grad-g4-sky-a1": "#F0E48600",
+    "grad-g4-sky-a1-transparent": "#F0E48600",
+    "grad-g4-sky-a1-secondary": "#F0E48600",
+    "grad-g4-sky-a2": "#F0E48600",
+    "grad-g4-sky-bg": "#F0E48600",
 
-    "grad-g5-cobalt-a1": "#7F7ACD00",
-    "grad-g5-cobalt-a1-transparent": "#7F7ACD00",
-    "grad-g5-cobalt-a1-secondary": "#7F7ACD00",
-    "grad-g5-cobalt-a2": "#7F7ACD00",
-    "grad-g5-cobalt-bg": "#7F7ACD00",
+    "grad-g5-cobalt-a1": "#F0E48600",
+    "grad-g5-cobalt-a1-transparent": "#F0E48600",
+    "grad-g5-cobalt-a1-secondary": "#F0E48600",
+    "grad-g5-cobalt-a2": "#F0E48600",
+    "grad-g5-cobalt-bg": "#F0E48600",
 
-    "grad-g6-plum-a1": "#7F7ACD00",
-    "grad-g6-plum-a1-transparent": "#7F7ACD00",
-    "grad-g6-plum-a1-secondary": "#7F7ACD00",
-    "grad-g6-plum-a2": "#7F7ACD00",
-    "grad-g6-plum-bg": "#7F7ACD00",
+    "grad-g6-plum-a1": "#F0E48600",
+    "grad-g6-plum-a1-transparent": "#F0E48600",
+    "grad-g6-plum-a1-secondary": "#F0E48600",
+    "grad-g6-plum-a2": "#F0E48600",
+    "grad-g6-plum-bg": "#F0E48600",
 
-    "grad-g7-violet-a1": "#7F7ACD00",
-    "grad-g7-violet-a1-transparent": "#7F7ACD00",
-    "grad-g7-violet-a1-secondary": "#7F7ACD00",
-    "grad-g7-violet-a2": "#7F7ACD00",
-    "grad-g7-violet-bg": "#7F7ACD00",
+    "grad-g7-violet-a1": "#F0E48600",
+    "grad-g7-violet-a1-transparent": "#F0E48600",
+    "grad-g7-violet-a1-secondary": "#F0E48600",
+    "grad-g7-violet-a2": "#F0E48600",
+    "grad-g7-violet-bg": "#F0E48600",
 
-    "grad-g8-ocean-a1": "#7F7ACD00",
-    "grad-g8-ocean-a1-transparent": "#7F7ACD00",
-    "grad-g8-ocean-a1-secondary": "#7F7ACD00",
-    "grad-g8-ocean-a2": "#7F7ACD00",
-    "grad-g8-ocean-bg": "#7F7ACD00",
+    "grad-g8-ocean-a1": "#F0E48600",
+    "grad-g8-ocean-a1-transparent": "#F0E48600",
+    "grad-g8-ocean-a1-secondary": "#F0E48600",
+    "grad-g8-ocean-a2": "#F0E48600",
+    "grad-g8-ocean-bg": "#F0E48600",
 
-    "grad-g9-grass-a1": "#7F7ACD00",
-    "grad-g9-grass-a1-transparent": "#7F7ACD00",
-    "grad-g9-grass-a1-secondary": "#7F7ACD00",
-    "grad-g9-grass-a2": "#7F7ACD00",
-    "grad-g9-grass-bg": "#7F7ACD00",
+    "grad-g9-grass-a1": "#F0E48600",
+    "grad-g9-grass-a1-transparent": "#F0E48600",
+    "grad-g9-grass-a1-secondary": "#F0E48600",
+    "grad-g9-grass-a2": "#F0E48600",
+    "grad-g9-grass-bg": "#F0E48600",
 
     "container-popup-border-windows": "gray-130"
   },
 
   "ui": {
-    "grayFilter": "-25,-30,100",
     "*": {
       "background": "container-dialog-bg",
       "borderColor": "container-dialog-border",
@@ -418,7 +416,7 @@
 
     "alt": {
       "MainWindow.background": "container-main-window-bg-alt",
-      "MainToolbar.background": "lavender",
+      "MainToolbar.background": "container-main-window-bg-alt",
       "ToolWindow.Stripe.background": "container-main-window-bg-alt",
       "StatusBar.background": "container-main-window-bg-alt",
 
@@ -1119,20 +1117,20 @@
     },
 
     "MainToolbar": {
-      "background": "lavender",
-      "inactiveBackground": "lavender",
+      "background": "container-main-window-bg",
+      "inactiveBackground": "container-main-window-bg",
       "borderColor": "transparent",
       "foreground": "text-default",
       "separatorColor": "toolbar-border",
       "Icon": {
-        "background": "lavender",
+        "background": "container-main-window-bg",
         "hoverBackground": "toolbar-bg-hovered",
         "pressedBackground": "toolbar-bg-pressed",
         "insets": "6,5,4,5"
       },
       "Dropdown": {
         "foreground": "text-default",
-        "background": "lavender",
+        "background": "container-main-window-bg",
         "hoverBackground": "toolbar-bg-hovered",
         "transparentHoverBackground": "toolbar-bg-hovered",
         "pressedBackground": "toolbar-bg-pressed",
@@ -1146,8 +1144,8 @@
     "OnePixelDivider.background": "container-dialog-border",
 
     "TitlePane": {
-      "background": "lavender",
-      "inactiveBackground": "lavender",
+      "background": "container-dialog-bg",
+      "inactiveBackground": "container-dialog-bg",
       "Button": {
         "preferredSize": "40,40",
         "preferredSize.compact": "40,30",
@@ -1269,15 +1267,15 @@
       "iconBorderColor": "text-over-accent"
     },
 
-    "RecentProject.Color1.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color2.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color3.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color4.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color5.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color6.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color7.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color8.MainToolbarGradientStart": "#7F7ACD00",
-    "RecentProject.Color9.MainToolbarGradientStart": "#7F7ACD00",
+    "RecentProject.Color1.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color2.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color3.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color4.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color5.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color6.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color7.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color8.MainToolbarGradientStart": "#F0E48600",
+    "RecentProject.Color9.MainToolbarGradientStart": "#F0E48600",
 
     "RecentProject": {
       "MainToolbarGradient.width": 0,
@@ -1536,8 +1534,8 @@
 
     "RunWidget" : {
       "foreground": "text-default",
-      "iconColor": "#1E1F28",
-      "runIconColor": "#163D21",
+      "iconColor": "icon-default-stroke",
+      "runIconColor": "#328C4A",
       "runningBackground": "toolbar-run-bg",
       "stopBackground": "toolbar-stop-bg",
       "runningIconColor": "icon-over-accent",
@@ -1668,8 +1666,7 @@
     "/com/intellij/ide/ui/laf/icons/intellij/radioSelectedFocused.svg": "/themes/expUI/icons/dark/radioSelectedFocused.svg",
 
     "ColorPalette": {
-      "#6C707E": "#333542",
-      "#818594": "#373945",
+      "#818594": "#777A88",
       "Checkbox.Background.Default": "#FEF49C",
       "Checkbox.Border.Default": "#A8ADBD",
       "Checkbox.Foreground.Selected": "#FFFFFF",

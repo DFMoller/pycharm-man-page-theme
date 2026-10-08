@@ -11,25 +11,25 @@ static check and at least one screenshot, and the reply says what the screenshot
 ## Design intent
 
 The theme copies the Ubuntu terminal's "Man page" profile: pale yellow `#FEF49C` content, black text,
-flat surfaces with no colored frames. Purple is a splash only: the header bar is one solid lavender
-band (`#7F7ACD`, the terminal's title bar color in an SSH session), and purple otherwise appears only
-as accents (primary buttons, checkboxes, focus rings, light lavender selection). Tool window strips,
-gaps between panels, the window frame and the status bar stay yellow. Keep to this when changing
-colors.
+flat surfaces with no colored frames. The header bar, tool window strips, gaps between panels and status
+bar are one slightly deeper yellow (`#F0E486`), like the terminal's plain title bar. The user decided
+against a lavender header bar; purple appears only as accents (primary buttons, checkboxes, focus
+rings) and light lavender as selection. The Chrome Man Page theme uses the same colors. Keep to this
+when changing colors.
 
 The header bar has no background of its own: the window frame painter fills it with
 `MainToolbar.background`, and fills strips and gaps with `MainWindow.background`. The project-color
-gradient is switched off (zero size), which is what lets the two differ; see `GRADIENT_PATTERNS` in
-`make_theme.py`. Check header changes in both an active window (`main`) and an inactive one
-(`settings`, where the dialog has focus).
+gradient is switched off (zero size), so the header bar does not change color per project; see
+`GRADIENT_PATTERNS` in `make_theme.py`. Check header changes in both an active window (`main`) and an
+inactive one (`settings`, where the dialog has focus).
 
 ## Where the colors live
 
 - `make_theme.py` generates `src/themes/ManPage.theme.json` from Islands Light in the installed
   PyCharm. Do not edit the generated JSON by hand; `build.sh` (and so `preview.py`) overwrites it.
-  - `NEW_COLORS` - named palette colors added to the theme (paper, lavender, purple, ...).
+  - `NEW_COLORS` - named palette colors added to the theme (paper, purple, lavender-pale, ...).
   - `GREY_RAMP` - the light end of the Islands grey ramp, remapped to yellows.
-  - `GRADIENT_PATTERNS` - flattens the header bar's project-color gradient to lavender.
+  - `GRADIENT_PATTERNS` - makes the header bar's project-color gradient transparent.
   - `REPLACEMENTS` - exact text edits to the source theme. Each `old` string must match exactly once,
     or `make_theme.py` fails and names it. Copy the `old` text from the source theme, including its
     indentation and line breaks.
@@ -43,7 +43,7 @@ python3 -c "import json,sys; from check_theme import flatten; t=json.load(open('
 [print(k,'=',v) for k,v in flatten(t).items() if sys.argv[1].lower() in k.lower()]" Stripe
 ```
 
-Keys under `ui` resolve through the `colors` palette (`"MainToolbar.background": "lavender"`), and a
+Keys under `ui` resolve through the `colors` palette (`"selection-bg-active": "lavender-pale"`), and a
 `*.` key (for example `*.selectionBackground`) is the default for every component.
 
 ## The loop

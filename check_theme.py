@@ -40,7 +40,8 @@ UI_PAIRS = [
     ("Selected list and tree text", "*.selectionForeground", "*.selectionBackground", TEXT),
     ("Header bar text", "MainToolbar.foreground", "MainToolbar.background", TEXT),
     ("Header bar dropdown text", "MainToolbar.Dropdown.foreground", "MainToolbar.Dropdown.background", TEXT),
-    ("Header icons", "icons.ColorPalette.#6C707E", "MainToolbar.background", NON_TEXT),
+    # The light icon set's main grey, which the theme does not remap.
+    ("Header icons", "#6C707E", "MainToolbar.background", NON_TEXT),
     ("Header secondary icons", "icons.ColorPalette.#818594", "MainToolbar.background", NON_TEXT),
     ("Header Run widget icons", "RunWidget.iconColor", "MainToolbar.background", NON_TEXT),
     ("Header Run icon", "RunWidget.runIconColor", "MainToolbar.background", NON_TEXT),
