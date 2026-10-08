@@ -31,7 +31,8 @@ TEXT = 4.5
 NON_TEXT = 3.0
 
 # (label, foreground, background, minimum). Colours are UI keys (dotted, e.g. "MainToolbar.foreground"),
-# names from the theme's colour palette, or literal hex values.
+# other theme keys with their section (e.g. "icons.ColorPalette.#6C707E", the colour that the icon grey
+# #6C707E is replaced with), names from the theme's colour palette, or literal hex values.
 UI_PAIRS = [
     ("Dialog text", "text-default", "*.background", TEXT),
     ("Secondary text in dialogs", "text-secondary", "*.background", TEXT),
@@ -39,6 +40,10 @@ UI_PAIRS = [
     ("Selected list and tree text", "*.selectionForeground", "*.selectionBackground", TEXT),
     ("Header bar text", "MainToolbar.foreground", "MainToolbar.background", TEXT),
     ("Header bar dropdown text", "MainToolbar.Dropdown.foreground", "MainToolbar.Dropdown.background", TEXT),
+    ("Header icons", "icons.ColorPalette.#6C707E", "MainToolbar.background", NON_TEXT),
+    ("Header secondary icons", "icons.ColorPalette.#818594", "MainToolbar.background", NON_TEXT),
+    ("Header Run widget icons", "RunWidget.iconColor", "MainToolbar.background", NON_TEXT),
+    ("Header Run icon", "RunWidget.runIconColor", "MainToolbar.background", NON_TEXT),
     ("Tool window text", "text-default", "ToolWindow.background", TEXT),
     ("Tool window buttons", "ToolWindow.Button.foreground", "ToolWindow.Stripe.background", NON_TEXT),
     ("Status bar widgets", "StatusBar.Widget.foreground", "StatusBar.background", TEXT),
@@ -147,7 +152,8 @@ def scheme_colours(scheme: ElementTree.Element) -> dict[str, str]:
 
 
 def check_ui(theme: dict) -> list[Result]:
-    ui, palette = flatten(theme.get("ui", {})), theme.get("colors", {})
+    ui = {**flatten(theme), **flatten(theme.get("ui", {}))}
+    palette = theme.get("colors", {})
     results = []
     for label, fg, bg, minimum in UI_PAIRS:
         front, back = resolve(fg, ui, palette), resolve(bg, ui, palette)

@@ -74,9 +74,14 @@ REPLACEMENTS = [
     ('"tab-selected-bg-active": "blue-150"', '"tab-selected-bg-active": "lavender-paler"'),
     ('"toolbar-selected-bg": "blue-140"', '"toolbar-selected-bg": "lavender-pale"'),
     ('"toolbar-selected-bg-hovered": "blue-130"', '"toolbar-selected-bg-hovered": "lavender-border"'),
-    # The Run/Debug buttons in the header draw their icons in this colour, faded when disabled. The default
-    # grey fades to almost nothing on lavender.
-    ('"iconColor": "icon-default-stroke",\n      "runningBackground"', '"iconColor": "#1E1F28",\n      "runningBackground"'),
+    # The Run/Debug buttons in the header draw their icons in iconColor, faded when disabled; the default
+    # grey fades to almost nothing on lavender. The green Run icon uses runIconColor, which Islands Light
+    # leaves at the default green: the same lightness as the lavender (contrast 1.0). A dark green keeps
+    # it green and gives it 3:1. It applies to the header only, not to the Run arrows in the editor.
+    (
+        '"iconColor": "icon-default-stroke",\n      "runningBackground"',
+        '"iconColor": "#1E1F28",\n      "runIconColor": "#163D21",\n      "runningBackground"',
+    ),
     # Header bar and title bar. The project-colour gradient gets zero size; see GRADIENT_PATTERNS.
     ('"MainToolbarGradient.width": 600', '"MainToolbarGradient.width": 0'),
     ('"MainToolbarGradient.height": 300', '"MainToolbarGradient.height": 0'),
@@ -100,8 +105,8 @@ REPLACEMENTS = [
         '"TitlePane": {\n      "background": "lavender",\n      "inactiveBackground": "lavender",',
     ),
     # Darken the standard grey used by the light icon set (including the GNOME window buttons), which
-    # is too faint on the lavender header, and the lighter secondary grey with it.
-    ('"ColorPalette": {', '"ColorPalette": {\n      "#6C707E": "#3E4050",\n      "#818594": "#4F5262",'),
+    # is too faint on the lavender header, and the lighter secondary grey with it, to 3:1 on lavender.
+    ('"ColorPalette": {', '"ColorPalette": {\n      "#6C707E": "#333542",\n      "#818594": "#373945",'),
     # Disabled icons are a grey-filtered copy of the icon (brightness, contrast, alpha). The inherited
     # filter lightens them, which makes them vanish on the lavender header; darken them instead.
     ('"ui": {\n    "*": {', '"ui": {\n    "grayFilter": "-25,-30,100",\n    "*": {'),

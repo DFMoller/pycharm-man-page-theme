@@ -1537,6 +1537,7 @@
     "RunWidget" : {
       "foreground": "text-default",
       "iconColor": "#1E1F28",
+      "runIconColor": "#163D21",
       "runningBackground": "toolbar-run-bg",
       "stopBackground": "toolbar-stop-bg",
       "runningIconColor": "icon-over-accent",
@@ -1667,8 +1668,8 @@
     "/com/intellij/ide/ui/laf/icons/intellij/radioSelectedFocused.svg": "/themes/expUI/icons/dark/radioSelectedFocused.svg",
 
     "ColorPalette": {
-      "#6C707E": "#3E4050",
-      "#818594": "#4F5262",
+      "#6C707E": "#333542",
+      "#818594": "#373945",
       "Checkbox.Background.Default": "#FEF49C",
       "Checkbox.Border.Default": "#A8ADBD",
       "Checkbox.Foreground.Selected": "#FFFFFF",
