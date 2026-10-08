@@ -4,18 +4,11 @@ A PyCharm UI theme and editor color scheme. See `README.md` for what each file d
 
 ## Seeing the result of a change
 
-After changing colors in `make_theme.py` or `ManPage.xml`, check the result yourself before reporting
-back:
-
-1. `./check_theme.py` - contrast of the main color pairs and the keys that differ from Islands Light.
-   Takes well under a second and needs no IDE. Exit status 1 means a pair is below its minimum; say which.
-2. `./preview.py [scene]` - builds the jar, starts a throwaway PyCharm on a virtual display with the
-   theme active, and prints the path of a screenshot. Read the PNG to see the result. Scenes: `main`
-   (default; editor and Project tool window), `settings`, `popup` (Search Everywhere), `menu` (File
-   menu), `run` (run console with the 16 ANSI colors). A cached run takes 25 to 40 s; the first run
-   after a PyCharm upgrade takes about a minute.
-3. To look at a detail, crop the screenshot with ImageMagick (`convert in.png -crop WxH+X+Y out.png`)
-   and read the crop.
+Never report a color change as done without looking at it. After changing colors in `make_theme.py`
+or `ManPage.xml`, run `./check_theme.py` (contrast and keys changed, no IDE) and `./preview.py [scene]`
+(screenshot of a sandboxed PyCharm with the theme), then read the PNG. The `theme-preview` skill in
+`.claude/skills/` has the full workflow: scenes, cropping and comparing screenshots, finding theme
+keys, and what to do when a preview fails.
 
 Run the unit tests with `python3 -m unittest discover -s tests -t .`.
 
