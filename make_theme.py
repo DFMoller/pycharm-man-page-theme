@@ -141,24 +141,28 @@ def recolour(source: str) -> str:
     return source
 
 
-def main() -> None:
-    """Write the recoloured theme JSON next to the plugin sources.
+def read_islands_light(pycharm_dir: Path) -> str:
+    """Return the Islands Light theme JSON text bundled with a PyCharm install.
 
     Raises
     ------
     FileNotFoundError
         If the PyCharm install directory does not contain the bundled theme jar.
     """
+    jar = pycharm_dir / ISLANDS_JAR
+    if not jar.is_file():
+        raise FileNotFoundError(f"Theme jar not found: {jar}")
+    with zipfile.ZipFile(jar) as zf:
+        return zf.read(ISLANDS_JSON).decode()
+
+
+def main() -> None:
+    """Write the recoloured theme JSON next to the plugin sources."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("pycharm_dir", type=Path, help="PyCharm install directory, e.g. /opt/pycharm-2026.1.2.")
     args = parser.parse_args()
 
-    jar = args.pycharm_dir / ISLANDS_JAR
-    if not jar.is_file():
-        raise FileNotFoundError(f"Theme jar not found: {jar}")
-    with zipfile.ZipFile(jar) as zf:
-        source = zf.read(ISLANDS_JSON).decode()
-
+    source = read_islands_light(args.pycharm_dir)
     out = Path(__file__).parent / "src" / "themes" / "ManPage.theme.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(recolour(source))
