@@ -401,7 +401,7 @@
       "modifiedItemForeground": "text-link"
     },
 
-    "Islands": 1,
+    "Islands": 0,
     "Island": {
       "arc": 20,
       "arc.compact": 16,
@@ -953,8 +953,8 @@
 
     "StatusBar": {
       "background": "container-main-window-bg",
-      "borderColor": "transparent",
-      "topBorderWidth": 0,
+      "borderColor": "container-main-window-border",
+      "topBorderWidth": 1,
       "Widget": {
         "foreground": "text-muted",
         "hoverForeground": "text-default",
@@ -1067,7 +1067,7 @@
 
     "ToolWindow": {
       "background": "container-tool-window-bg",
-      "borderColor": "transparent",
+      "borderColor": "container-main-window-border",
       "Header": {
         "borderColor": "container-tool-window-border",
         "inactiveBackground": "container-tool-window-bg",
@@ -1089,7 +1089,7 @@
       },
       "Stripe": {
         "background": "container-main-window-bg",
-        "borderColor": "transparent",
+        "borderColor": "container-main-window-border",
         "separatorColor": "toolbar-border",
         "DragAndDrop": {
           "separatorColor": "control-brand-border"
@@ -1119,7 +1119,7 @@
     "MainToolbar": {
       "background": "container-main-window-bg",
       "inactiveBackground": "container-main-window-bg",
-      "borderColor": "transparent",
+      "borderColor": "container-main-window-border",
       "foreground": "text-default",
       "separatorColor": "toolbar-border",
       "Icon": {

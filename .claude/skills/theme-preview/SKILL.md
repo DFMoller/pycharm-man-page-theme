@@ -11,17 +11,19 @@ static check and at least one screenshot, and the reply says what the screenshot
 ## Design intent
 
 The theme copies the Ubuntu terminal's "Man page" profile: pale yellow `#FEF49C` content, black text,
-flat surfaces with no colored frames. The header bar, tool window strips, gaps between panels and status
-bar are one slightly deeper yellow (`#F0E486`), like the terminal's plain title bar. The user decided
-against a lavender header bar; purple appears only as accents (primary buttons, checkboxes, focus
-rings) and light lavender as selection. The Chrome Man Page theme uses the same colors. Keep to this
-when changing colors.
+flat surfaces with no colored frames. The header bar, tool window strips and status bar are one slightly
+deeper yellow (`#F0E486`), like the terminal's plain title bar. The user decided against a lavender
+header bar; purple appears only as accents (primary buttons, checkboxes, focus rings) and light
+lavender as selection. The Chrome Man Page theme uses the same colors. Keep to this when changing
+colors.
 
-The header bar has no background of its own: the window frame painter fills it with
-`MainToolbar.background`, and fills strips and gaps with `MainWindow.background`. The project-color
-gradient is switched off (zero size), so the header bar does not change color per project; see
-`GRADIENT_PATTERNS` in `make_theme.py`. Check header changes in both an active window (`main`) and an
-inactive one (`settings`, where the dialog has focus).
+The user chose the classic layout over islands: `"Islands": 0`, with panels side by side and 1 px
+borders in `container-main-window-border` (`#D8CC70`) around the tool windows, strips, header bar and
+status bar (Islands Light makes those transparent). `Borders.color` draws separators inside panels and
+`ToolWindow.Header.borderColor` the line under tool window headers. The project-color gradient is
+switched off (zero size), so the header bar does not change color per project; see `GRADIENT_PATTERNS`
+in `make_theme.py`. Check header and border changes in both an active window (`main`) and an inactive
+one (`settings`, where the dialog has focus).
 
 ## Where the colors live
 

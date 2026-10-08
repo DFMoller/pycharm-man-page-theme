@@ -3,8 +3,9 @@
 A PyCharm UI theme and editor color scheme that match the Ptyxis/Terminal "Man Page" palette: pale
 yellow backgrounds and header bar, and purple accent and lavender selection colors.
 
-The UI theme is generated from the Islands Light theme bundled with PyCharm, so it inherits all
-layout and icon settings and only changes colors.
+The UI theme is generated from the Islands Light theme bundled with PyCharm, so it inherits its icon
+and size settings and mostly changes colors. It switches off the islands layout, so panels sit side by
+side with thin borders, as in the classic layout, instead of as rounded islands with gaps.
 
 ## Files
 

@@ -2,8 +2,9 @@
 
 The theme is a recoloured copy of Islands Light: backgrounds become the pale yellow of the
 Ptyxis/Terminal "Man Page" palette, including the header bar, and purple and lavender replace the blue
-accent and selection colours. Everything else (text colours, icons, metrics) is inherited unchanged, which is why
-the theme is regenerated from the installed IDE rather than maintained by hand.
+accent and selection colours. The islands layout is switched off in favour of the classic one, with
+borders between panels. Everything else (text colours, icons, metrics) is inherited unchanged, which is
+why the theme is regenerated from the installed IDE rather than maintained by hand.
 """
 
 import argparse
@@ -81,6 +82,31 @@ REPLACEMENTS = [
     (
         '"iconColor": "icon-default-stroke",\n      "runningBackground"',
         '"iconColor": "icon-default-stroke",\n      "runIconColor": "#328C4A",\n      "runningBackground"',
+    ),
+    # Use the classic layout, with panels side by side separated by thin borders, instead of rounded
+    # islands with gaps between them. Islands Light makes the borders around the tool windows, tool window
+    # strips, header bar and status bar transparent (and removes the status bar's top border), because
+    # islands are separated by gaps instead; the classic layout needs them back.
+    ('"Islands": 1,', '"Islands": 0,'),
+    (
+        '"StatusBar": {\n      "background": "container-main-window-bg",\n      "borderColor": "transparent",\n'
+        '      "topBorderWidth": 0,',
+        '"StatusBar": {\n      "background": "container-main-window-bg",\n'
+        '      "borderColor": "container-main-window-border",\n      "topBorderWidth": 1,',
+    ),
+    (
+        '"ToolWindow": {\n      "background": "container-tool-window-bg",\n      "borderColor": "transparent",',
+        '"ToolWindow": {\n      "background": "container-tool-window-bg",\n'
+        '      "borderColor": "container-main-window-border",',
+    ),
+    (
+        '"background": "container-main-window-bg",\n        "borderColor": "transparent",\n        "separatorColor"',
+        '"background": "container-main-window-bg",\n        "borderColor": "container-main-window-border",\n'
+        '        "separatorColor"',
+    ),
+    (
+        '"inactiveBackground": "container-main-window-bg",\n      "borderColor": "transparent",',
+        '"inactiveBackground": "container-main-window-bg",\n      "borderColor": "container-main-window-border",',
     ),
     # The project-colour gradient gets zero size; see GRADIENT_PATTERNS.
     ('"MainToolbarGradient.width": 600', '"MainToolbarGradient.width": 0'),
